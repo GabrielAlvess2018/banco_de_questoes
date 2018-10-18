@@ -1,0 +1,10 @@
+{% extends 'home.html' %}
+
+{% block content %}
+	<form class="site-form" method="post">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<input type="submit" value="Clique aqui se realmente desejar excluir esse perfil"/>
+		<p> Lembre-se: se você excluir um perfil no qual você esteja logado, você sairá da aplicação e perderá quaisquer dados relacionados a ele. </p>
+	</form>
+{% endblock %}

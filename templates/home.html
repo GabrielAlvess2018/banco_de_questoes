@@ -1,0 +1,73 @@
+<!-- {% load static from staticfiles %} -->
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+
+	<title> BANCO DE QUESTÕES </title>
+
+</head>
+
+<body>
+
+	<header class="wrapper">
+		<nav>
+			<ul>
+
+				<li>
+					<a href="{% url 'bancodequestoes:home' %}" class="hl"> Home </a>
+				</li>
+				
+				{% if user.is_authenticated %}
+				
+				<li>
+					<a href="{% url 'bancodequestoes:perfil' %}" class="hl"> Perfil </a>
+				</li>
+
+				<li>
+					<a href="{% url 'bancodequestoes:disciplina' %}" class="hl"> Cadastrar Disciplina </a>
+				</li>
+
+				<li>
+					<a href="{% url 'bancodequestoes:suasdisciplinas' %}" class="hl"> Suas Disciplinas </a>
+				</li>
+
+				<li>
+					<a href="{% url 'bancodequestoes:criarquestao' %}" class="hl"> Criar Questão </a>
+				</li>
+
+				<li>
+					<a href="{% url 'bancodequestoes:suasquestoes' %}" class="hl"> Suas Questões </a>
+				</li>
+
+				<li>
+					<a href="{% url 'bancodequestoes:logout' %}" class="hl"> Sair </a>
+				</li>
+
+				{% else %}
+
+				<li>
+					<a href="{% url 'bancodequestoes:cadastro' %}" class="hl"> Cadastrar-se </a>
+				</li>
+
+				<li>
+					<a href="{% url 'bancodequestoes:login' %}" class="hl"> Entrar </a>
+				</li>
+
+				{% endif %}
+
+			</ul>
+		</nav>
+	</header>
+
+	{% block content %}
+
+	{% endblock %}
+
+</body>
+
+</html>

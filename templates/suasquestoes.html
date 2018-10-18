@@ -1,0 +1,17 @@
+{% extends 'home.html' %}
+
+{% block content %}
+	{% for object in object_list %}
+		{% if object.prof == request.user %}
+			<p> {{object.enunciation}} </p>
+			<p> {{object.alternative1}} </p>
+			<p> {{object.alternative2}} </p>
+			<p> {{object.alternative3}} </p>
+			<p> {{object.alternative4}} </p>
+			<p> {{object.alternative5}} </p>
+			<p> {{object.answer}} </p>
+			<p> <a href="{% url 'bancodequestoes:questaoedit' object.pk %}"> Editar Questão </a> <p/>
+			<p> <a href="{% url 'bancodequestoes:questaodelete' object.pk%}"> Excluir Questão </a> </p>
+		{% endif %}
+	{% endfor %}
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'home.html' %}
+
+{% block content %}
+	<form class="site-form" method="post">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<input type="submit" value="Alterar"/>
+	<p> Lembre-se: a sua senha está criptografada. Alterá-la pode tornar sua conta inacessível!</p>
+	</form>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'home.html' %}
+
+{% block content %}
+	{% for object in object_list %}
+		{% if object.username == request.user.username %}
+			{{object.username}}
+			<p> <a href="{% url 'bancodequestoes:perfiledit' object.pk %}"> Editar Perfil </a> <p/>
+			<p> <a href="{% url 'bancodequestoes:perfildelete' object.pk%}"> Excluir Perfil </a> </p>
+		{% endif %}
+	{% endfor %}
+{% endblock %}
