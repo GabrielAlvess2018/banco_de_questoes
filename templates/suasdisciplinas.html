@@ -3,8 +3,8 @@
 {% block content %}
 	{% for object in object_list %}
 		{% if object.prof == request.user %}
-			<p> {{object.name}} </p>
-			<p> {{object.description}} </p>
+			<h2> <b> {{object.name}} </b> </h2>
+			<h3> {{object.description}} </h3>
 			<p> <a href="{% url 'bancodequestoes:disciplinaedit' object.pk %}"> Editar Disciplina </a> <p/>
 			<p> <a href="{% url 'bancodequestoes:disciplinadelete' object.pk%}"> Excluir Disciplina </a> </p>
 		{% endif %}

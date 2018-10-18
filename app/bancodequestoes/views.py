@@ -114,3 +114,16 @@ class QuestaoDelete(DeleteView):
     template_name = 'questaodelete.html'
     success_url = reverse_lazy('bancodequestoes:home')
     form_class = QuestaoForm
+
+#CriarProvaView
+class CriarProva(ListView):
+    model = models.Disciplina
+    template_name = 'criarprova.html'
+
+#QuestaoDisciplinaView
+class QuestaoDisciplina(DetailView):
+    model = models.Disciplina
+    template_name = 'questoesdisciplina.html'
+    def get_context_data(self, **kwargs):
+        kwargs['questoes'] = models.Questao.objects.all()
+        return super(QuestaoDisciplina, self).get_context_data(**kwargs)

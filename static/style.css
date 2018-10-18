@@ -1,0 +1,197 @@
+body {
+	background-image: url(fundo.jpg);
+	background-repeat-y: no-repeat;
+	color:#000; 
+}
+
+body * {
+	font-family: Ubuntu;
+}
+
+h1, h2, h3, h4, h5, p {
+	font-weight: normal;
+	margin: 0;
+	color: #003300;
+	text-align: left;
+	text-align: justify;
+	margin: 2px;
+}
+
+p a {
+	background: orange;
+	text-decoration: none;
+	color: #000;
+	cursor: pointer;
+	border: 0;
+	font-size: 1en;
+	text-align: right;
+}
+
+a:visited{
+	color: #000000; 
+}
+
+a:active {
+	color:#333333;
+}
+
+.wrapper {
+	max-width: 960px;
+	margin: 0, auto;
+}
+
+div.wrapper h1 {
+	text-align: center;
+	margin: 100 px auto;
+	font-size: 2.4en;
+}
+
+header {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	padding: 20px 0;
+}
+
+nav{
+	justify-self: end;	
+	width: 1250px;
+	text-align: center;
+}
+
+nav li{
+	background-color: orange; 
+	display: inline-block;
+	text-decoration: none;
+	
+}
+
+nav a{
+	text-decoration: none;
+	
+}
+
+nav button{
+	background: orange;
+	text-decoration: none;
+	color: #000;
+	cursor: pointer;
+	border: 0;
+	font-size: 1en; 
+}
+
+.artigos {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-gap: 80px;
+	
+}
+
+.artigo {
+	padding: 30px;
+	border: 1px solid orange;
+	position: relative;
+	padding-bottom: 40px;
+	
+}
+
+.artigo a{
+	text-decoration: none;
+	font-size: 1.2em;
+	color: orange;
+}
+
+.artigo h2{
+	font-size: 1.2em;
+	
+}
+
+.detalhes .artigo{
+	padding: 0;
+}
+
+.detalhes .artigo img {
+	max-width: 80%;
+}
+
+.detalhes .artigo h2 {
+	text-align: center;
+	margin: 20px auto;
+	font-size: 2em;
+}
+
+.detalhes .artigo p {
+	text-align: center;
+	
+}
+
+.artigo .autor {
+	padding: 10px;
+	background: orange;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	margin: 0;
+	color: #0f121f;
+}
+
+.site-form {
+	margin-top: 60px;
+	border: 1px solid orange;
+	padding-right: 0px;
+}
+
+.site-form input, site-form textarea {
+	display: block;
+	margin: 20px 0 0 0;
+	padding-right: 0px;
+}
+
+a.hl {
+	border: 1px solid orange;
+	padding: 10px;
+	border-radius: 1px;
+	color: #dbdbdb;
+	font-size: 1.1em;
+}
+
+a.hl{
+	border: 1px solid orange;
+	padding: 10px;
+	border-radius: 1px;
+	color: #000;
+	font-size: 1.1em;	
+}
+
+.main-image {
+	max-width: 100%;
+}
+
+.helptext, .helptext ul, .helptext li {
+	margin: 0 auto 20px;
+	color: orange;
+	font-size: 0.9em;
+	display: block;
+}
+
+.errorlist li{
+	padding: 10px;
+	list-style-type: none;
+	border: 1px solid red;
+	color: #ff5722;
+	margin: 10px 0;
+}
+
+.errorlist {
+	padding: 0;
+	
+}
+
+.site-form input[type="submit"] {
+	background: orange;
+	border: 0;
+	color:#fff;
+	font-size: 1.2em;
+	border-radius: 4px;
+	margin: 10px 0;
+	cursor: pointer;
+}

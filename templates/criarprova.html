@@ -1,0 +1,10 @@
+{% extends 'home.html' %}
+
+{% block content %}
+	<h3> Selecione a disciplina desejada: </h3>
+	{% for object in object_list %}
+		{% if object.prof == request.user %}
+		<p> <a href="{% url 'bancodequestoes:questoesdisciplina' object.pk %}"> {{object.name}} </a> </p>
+		{% endif %}
+	{% endfor %}
+{% endblock %}

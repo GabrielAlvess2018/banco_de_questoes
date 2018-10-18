@@ -43,4 +43,9 @@ urlpatterns = [
 	path('questaoedit/<pk>/', views.QuestaoEdit.as_view(), name='questaoedit'),
 
 	path('questaodelete/<pk>/', views.QuestaoDelete.as_view(), name='questaodelete'),
+
+	#Criar Prova
+	path('criarprova/', views.CriarProva.as_view(), name='criarprova'),
+
+	path('questoesdisciplina/<pk>/', views.QuestaoDisciplina.as_view(), name='questoesdisciplina'),
 ]

@@ -33,6 +33,8 @@ class UUIDUser(AbstractUser):
         verbose_name = 'usuário'
         verbose_name_plural = 'usuários'
 
+# DisciplinaModel
+# - - - - - - - - - - - - - - - - - - -
 class Disciplina(models.Model):
     prof = models.ForeignKey(UUIDUser, on_delete=models.CASCADE, related_name='disciplina', verbose_name='professor')
     name = models.CharField(max_length=100, verbose_name='nome')
@@ -45,6 +47,8 @@ class Disciplina(models.Model):
         verbose_name = 'disciplina'
         verbose_name_plural = 'disciplinas'
 
+# QuestaoModel
+# - - - - - - - - - - - - - - - - - - -
 class Questao(models.Model):
     prof = models.ForeignKey(UUIDUser, on_delete=models.CASCADE, related_name='questão', verbose_name='professor')
     subject = models.ForeignKey(Disciplina, on_delete=models.CASCADE, related_name='questão', verbose_name='disciplina')
@@ -57,13 +61,14 @@ class Questao(models.Model):
     answer = models.CharField(max_length=100, verbose_name='alternativa correta')
 
     def __str__(self):
-        return self.name
+        return self.subject
 
     class Meta:
         verbose_name = 'questão'
         verbose_name_plural = 'questões'
 
+# ProvaModel
+# - - - - - - - - - - - - - - - - - - -
 class Prova(models.Model):
     prof = models.ForeignKey(UUIDUser, on_delete=models.CASCADE, related_name='prova', verbose_name='professor')
     question = models.ForeignKey(Questao, on_delete=models.CASCADE, related_name='prova', verbose_name='questão')
-    
