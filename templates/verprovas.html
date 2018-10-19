@@ -4,7 +4,55 @@
 	<h3> Suas Provas: </h3>
 	{% for object in object_list %}
 		{% if object.prof == request.user %}
-			<p> {{object.title}} </p>
+			<p> Título da Prova: {{object.title}} </p>
+
+
+
+			<p> <b> Enunciado: 1) {{object.question1}} </b> </p>
+			<p> Imagem: <img src="/media/{{object.question1.image}}"></p>
+			<p> Alternativas: </p>
+			<p> a) {{object.question1.alternative1}}</p>
+			<p> b) {{object.question1.alternative2}}</p>
+			<p> c) {{object.question1.alternative3}}</p>
+			<p> d) {{object.question1.alternative4}}</p>
+			<p> e) {{object.question1.alternative5}}</p>
+			
+			<p> Enunciado: 2) {{object.question2}}</p>
+			<p> Imagem: <img src="/media/{{object.question2.image}}"></p>
+			<p> Alternativas: </p>
+			<p> a) {{object.question2.alternative1}}</p>
+			<p> b) {{object.question2.alternative2}}</p>
+			<p> c) {{object.question2.alternative3}}</p>
+			<p> d) {{object.question2.alternative4}}</p>
+			<p> e) {{object.question2.alternative5}}</p>
+			
+			<p> Enunciado: 3) {{object.question3}}</p>
+			<p> Imagem: <img src="/media/{{object.question3.image}}"></p>
+			<p> Alternativas: </p>
+			<p> a) {{object.question3.alternative1}}</p>
+			<p> b) {{object.question3.alternative2}}</p>
+			<p> c) {{object.question3.alternative3}}</p>
+			<p> d) {{object.question3.alternative4}}</p>
+			<p> e) {{object.question3.alternative5}}</p>
+			
+			<p> Enunciado: 4) {{object.question4}}</p>
+			<p> Imagem: <img src="/media/{{object.question4.image}}"></p>
+			<p> Alternativas: </p>
+			<p> a) {{object.question4.alternative1}}</p>
+			<p> b) {{object.question4.alternative2}}</p>
+			<p> c) {{object.question4.alternative3}}</p>
+			<p> d) {{object.question4.alternative4}}</p>
+			<p> e) {{object.question4.alternative5}}</p>
+			
+			<p> Enunciado: 5) {{object.question5}}</p>
+			<p> Imagem: <img src="/media/{{object.question5.image}}"></p>
+			<p> Alternativas: </p>
+			<p> a) {{object.question5.alternative1}}</p>
+			<p> b) {{object.question5.alternative2}}</p>
+			<p> c) {{object.question5.alternative3}}</p>
+			<p> d) {{object.question5.alternative4}}</p>
+			<p> e) {{object.question5.alternative5}}</p>
+			
 			<p> <a href="{% url 'bancodequestoes:provaedit' object.pk %}"> Editar Prova </a> </p>
 			<p> <a href="{% url 'bancodequestoes:provadelete' object.pk %}"> Excluir Prova </a> </p>
 		{% endif %}

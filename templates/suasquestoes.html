@@ -4,6 +4,7 @@
 	{% for object in object_list %}
 		{% if object.prof == request.user %}
 			<h3> <b> {{object.enunciation}} </b> </h3> 
+			<p> <img src="/media/{{object.image}}"></p>
 			<p> {{object.alternative1}} </p>
 			<p> {{object.alternative2}} </p>
 			<p> {{object.alternative3}} </p>

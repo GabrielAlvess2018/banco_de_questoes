@@ -14,7 +14,7 @@ h1, h2, h3, h4, h5, p {
 	color: #003300;
 	text-align: left;
 	text-align: justify;
-	margin: 2px;
+	margin-top: 20px;
 }
 
 p a {
@@ -27,6 +27,11 @@ p a {
 	text-align: right;
 }
 
+p img{
+	width: 200px;
+	margin: 20px 20px 20px 20px;
+	height: 200px;
+}
 a:visited{
 	color: #000000; 
 }

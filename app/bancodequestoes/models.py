@@ -74,10 +74,10 @@ class Prova(models.Model):
     prof = models.ForeignKey(UUIDUser, on_delete=models.CASCADE, related_name='prova', verbose_name='professor')
     title = models.CharField(max_length=100, verbose_name='título')
     question1 = models.ForeignKey(Questao, on_delete=models.CASCADE, related_name='prova1', verbose_name='questão1')
-    question2 = models.ForeignKey(Questao, on_delete=models.CASCADE, related_name='prova2', verbose_name='questão2')
-    question3 = models.ForeignKey(Questao, on_delete=models.CASCADE, related_name='prova3', verbose_name='questão3')
-    question4 = models.ForeignKey(Questao, on_delete=models.CASCADE, related_name='prova4', verbose_name='questão4')
-    question5 = models.ForeignKey(Questao, on_delete=models.CASCADE, related_name='prova5', verbose_name='questão5')
+    question2 = models.ForeignKey(Questao, on_delete=models.CASCADE, related_name='prova2', verbose_name='questão2', blank=True, null=True)
+    question3 = models.ForeignKey(Questao, on_delete=models.CASCADE, related_name='prova3', verbose_name='questão3', blank=True, null=True)
+    question4 = models.ForeignKey(Questao, on_delete=models.CASCADE, related_name='prova4', verbose_name='questão4', blank=True, null=True)
+    question5 = models.ForeignKey(Questao, on_delete=models.CASCADE, related_name='prova5', verbose_name='questão5', blank=True, null=True)
     def __str__(self):
         return self.title
 
