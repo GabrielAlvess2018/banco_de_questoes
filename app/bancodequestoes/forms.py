@@ -8,7 +8,7 @@ from django import forms
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 
 #Importando os models para criar os formulários
-from .models import UUIDUser, Disciplina, Questao
+from .models import UUIDUser, Disciplina, Questao, Prova
 
 # User: create
 # - - - - - - - - - - - - - - - - - - -
@@ -50,10 +50,11 @@ class DisciplinaForm(forms.ModelForm):
 class QuestaoForm(forms.ModelForm):
     class Meta:
         model = Questao
-        fields = ('subject', 'enunciation', 'alternative1', 'alternative2', 'alternative3', 'alternative4', 'alternative5', 'answer')
+        fields = ('subject', 'enunciation', 'image', 'alternative1', 'alternative2', 'alternative3', 'alternative4', 'alternative5', 'answer')
         label = {
         'subject':'Disciplina',
         'enunciation':'Enunciado',
+        'image':'Imagem',
         'alternative1':'Primeira Alternativa',
         'alternative2':'Segunda Alternativa',
         'alternative3':'Terceira Alternativa',
@@ -61,3 +62,19 @@ class QuestaoForm(forms.ModelForm):
         'alternativa5':'Quinta Alternativa',
         'answer':'Alternativa correta',
     }
+    
+    
+#form Prova
+# - - - - - - - - - - - - - - - - - - -
+class ProvaForm(forms.ModelForm):
+    class Meta:
+        model = Prova
+        fields = ('title', 'question1', 'question2', 'question3', 'question4', 'question5')
+        labels = {
+        'title' : 'Título da Prova',
+        'question1' : 'Questão 1',
+        'question2' : 'Questão 2',
+        'question3' : 'Questão 3',
+        'question4' : 'Questão 4',
+        'question5' : 'Questão 5',
+        }

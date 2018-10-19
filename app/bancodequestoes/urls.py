@@ -27,7 +27,7 @@ urlpatterns = [
 	#Cadastrar Disciplina
 	path('disciplina/', views.CadastrarDisciplina.as_view(), name='disciplina'),
 
-	#Ver, editar e excluir
+	#Ver, editar e excluir Disciplina
 	path('suasdisciplinas/', views.SuasDisciplinas.as_view(), name='suasdisciplinas'),
 
 	path('disciplinaedit/<pk>/', views.DisciplinaEdit.as_view(), name='disciplinaedit'),
@@ -45,7 +45,16 @@ urlpatterns = [
 	path('questaodelete/<pk>/', views.QuestaoDelete.as_view(), name='questaodelete'),
 
 	#Criar Prova
-	path('criarprova/', views.CriarProva.as_view(), name='criarprova'),
+	path('disciplinas/', views.ListDisciplina.as_view(), name='disciplinas'),
 
 	path('questoesdisciplina/<pk>/', views.QuestaoDisciplina.as_view(), name='questoesdisciplina'),
+	
+	path('criarprova/', views.CriarprovaView.as_view(), name='criarprova'),
+
+	#Ver, editar e excluir Prova
+	path('verprovas/', views.VerProvas.as_view(), name='verprovas'),
+
+	path('provaedit/<pk>/', views.ProvaEdit.as_view(), name='provaedit'),
+
+	path('provadelete/<pk>/', views.ProvaDelete.as_view(), name='provadelete'),
 ]

@@ -6,7 +6,7 @@ from django.contrib import admin
 
 from django.contrib.auth import admin as auth
 
-from .models import UUIDUser, Disciplina, Questao
+from .models import UUIDUser, Disciplina, Questao, Prova
 
 # UserAdmin
 # - - - - - - - - - - - - - - - - - - -
@@ -24,3 +24,4 @@ class UserAdmin(auth.UserAdmin):
 admin.site.register(UUIDUser, UserAdmin)
 admin.site.register(Disciplina)
 admin.site.register(Questao)
+admin.site.register(Prova)

@@ -1,18 +1,20 @@
 {% extends 'home.html' %}
 
 {% block content %}
+	<p><a href="{% url 'bancodequestoes:criarprova' %}"> Crie sua prova </a></p>
 	<h2> Questões da disciplina de {{object.name}} </h2>
 	{% for questao in questoes %}
-		{% if questao.subject.pk == object.pk %}
-			<br>
-			<p> {{questao.enunciation}}</p>
-			<p> {{questao.alternative1}}</p>
-			<p> {{questao.alternative2}}</p>
-			<p> {{questao.alternative3}}</p>
-			<p> {{questao.alternative4}}</p>
-			<p> {{questao.alternative5}}</p>
-			<br>
-			
+		{% if questao.prof == request.user %}
+			{% if questao.subject.pk == object.pk %}
+				<br>
+				<p> {{questao.enunciation}}</p>
+				<p> {{questao.alternative1}}</p>
+				<p> {{questao.alternative2}}</p>
+				<p> {{questao.alternative3}}</p>
+				<p> {{questao.alternative4}}</p>
+				<p> {{questao.alternative5}}</p>
+				<br>
+			{% endif %}
 		{% endif %}
 	{% endfor %}
 {% endblock %}

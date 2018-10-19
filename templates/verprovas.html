@@ -1,0 +1,12 @@
+{% extends 'home.html' %}
+
+{% block content %}
+	<h3> Suas Provas: </h3>
+	{% for object in object_list %}
+		{% if object.prof == request.user %}
+			<p> {{object.title}} </p>
+			<p> <a href="{% url 'bancodequestoes:provaedit' object.pk %}"> Editar Prova </a> </p>
+			<p> <a href="{% url 'bancodequestoes:provadelete' object.pk %}"> Excluir Prova </a> </p>
+		{% endif %}
+	{% endfor %}
+{% endblock %}

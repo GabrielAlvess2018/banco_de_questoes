@@ -53,6 +53,7 @@ class Questao(models.Model):
     prof = models.ForeignKey(UUIDUser, on_delete=models.CASCADE, related_name='questão', verbose_name='professor')
     subject = models.ForeignKey(Disciplina, on_delete=models.CASCADE, related_name='questão', verbose_name='disciplina')
     enunciation = models.TextField(verbose_name='enunciado') 
+    image = models.ImageField(blank=True, verbose_name='imagem')
     alternative1 = models.TextField(verbose_name='alternativa1')
     alternative2 = models.TextField(verbose_name='alternativa2')
     alternative3 = models.TextField(verbose_name='alternativa3')
@@ -61,7 +62,7 @@ class Questao(models.Model):
     answer = models.CharField(max_length=100, verbose_name='alternativa correta')
 
     def __str__(self):
-        return self.subject
+        return self.enunciation
 
     class Meta:
         verbose_name = 'questão'
@@ -71,4 +72,15 @@ class Questao(models.Model):
 # - - - - - - - - - - - - - - - - - - -
 class Prova(models.Model):
     prof = models.ForeignKey(UUIDUser, on_delete=models.CASCADE, related_name='prova', verbose_name='professor')
-    question = models.ForeignKey(Questao, on_delete=models.CASCADE, related_name='prova', verbose_name='questão')
+    title = models.CharField(max_length=100, verbose_name='título')
+    question1 = models.ForeignKey(Questao, on_delete=models.CASCADE, related_name='prova1', verbose_name='questão1')
+    question2 = models.ForeignKey(Questao, on_delete=models.CASCADE, related_name='prova2', verbose_name='questão2')
+    question3 = models.ForeignKey(Questao, on_delete=models.CASCADE, related_name='prova3', verbose_name='questão3')
+    question4 = models.ForeignKey(Questao, on_delete=models.CASCADE, related_name='prova4', verbose_name='questão4')
+    question5 = models.ForeignKey(Questao, on_delete=models.CASCADE, related_name='prova5', verbose_name='questão5')
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'prova'
+        verbose_name_plural = 'provas'

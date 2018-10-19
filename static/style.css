@@ -55,7 +55,7 @@ header {
 nav{
 	justify-self: end;	
 	width: 1250px;
-	text-align: center;
+	text-align: left;
 }
 
 nav li{

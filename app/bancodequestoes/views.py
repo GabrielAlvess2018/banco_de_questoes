@@ -16,7 +16,7 @@ from django.urls import reverse_lazy
 from . import models
 
 #Importando formulários específicos do arquivo forms.py
-from .forms import UUIDUserForm, UUIDUserFormEdit, DisciplinaForm, QuestaoForm
+from .forms import UUIDUserForm, UUIDUserFormEdit, DisciplinaForm, QuestaoForm, ProvaForm
 
 #HomeView
 class HomeView(TemplateView):
@@ -115,8 +115,8 @@ class QuestaoDelete(DeleteView):
     success_url = reverse_lazy('bancodequestoes:home')
     form_class = QuestaoForm
 
-#CriarProvaView
-class CriarProva(ListView):
+#ListDisciplinasView
+class ListDisciplina(ListView):
     model = models.Disciplina
     template_name = 'criarprova.html'
 
@@ -127,3 +127,35 @@ class QuestaoDisciplina(DetailView):
     def get_context_data(self, **kwargs):
         kwargs['questoes'] = models.Questao.objects.all()
         return super(QuestaoDisciplina, self).get_context_data(**kwargs)
+
+#CriarQuestaoView
+class CriarprovaView(CreateView):
+    model = models.Prova
+    template_name = 'criarquestaoview.html'
+    success_url = reverse_lazy('bancodequestoes:home')
+    form_class = ProvaForm
+    def form_valid(self, form):
+        obj = form.save(commit=False)
+        obj.prof = self.request.user
+        obj.save()
+        return super(CriarprovaView, self).form_valid(form)
+    
+
+#VerProvasViews
+class VerProvas(ListView):
+    model = models.Prova
+    template_name = 'verprovas.html'
+
+#ProvaEditView
+class ProvaEdit(UpdateView):
+    model = models.Prova
+    template_name = 'provaeditform.html'
+    success_url = reverse_lazy('bancodequestoes:home')
+    form_class = ProvaForm
+
+#ProvaDeleteView
+class ProvaDelete(DeleteView):
+    model = models.Prova
+    template_name = 'provadeleteform.html'
+    success_url = reverse_lazy('bancodequestoes:home')
+    form_class = ProvaForm
