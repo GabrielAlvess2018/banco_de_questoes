@@ -1,12 +1,15 @@
 {% extends 'home.html' %}
 
 {% block content %}
+	<h2> <b> Suas Disciplinas: </b> </h2>
 	{% for object in object_list %}
 		{% if object.prof == request.user %}
 			<h2> <b> {{object.name}} </b> </h2>
 			<h3> {{object.description}} </h3>
 			<p> <a href="{% url 'bancodequestoes:disciplinaedit' object.pk %}"> Editar Disciplina </a> <p/>
 			<p> <a href="{% url 'bancodequestoes:disciplinadelete' object.pk%}"> Excluir Disciplina </a> </p>
+
+			<p> <b>_______________________________________________________________________________________________________________________________________________ </b></p>
 		{% endif %}
 	{% endfor %}
 {% endblock %}

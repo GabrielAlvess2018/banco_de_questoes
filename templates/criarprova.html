@@ -1,7 +1,8 @@
 {% extends 'home.html' %}
 
 {% block content %}
-	<h3> Selecione a disciplina desejada: </h3>
+	<h3> <b> Antes de criar uma prova, veja as questões referentes a cada disciplina. </b> </h3>
+	<h3> <b> Selecione uma disciplina: </b> </h3>
 	{% for object in object_list %}
 		{% if object.prof == request.user %}
 		<p> <a href="{% url 'bancodequestoes:questoesdisciplina' object.pk %}"> {{object.name}} </a> </p>

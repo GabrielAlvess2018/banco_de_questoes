@@ -2,7 +2,7 @@
 
 {% block content %}
 	<p><a href="{% url 'bancodequestoes:criarprova' %}"> Crie sua prova </a></p>
-	<h2> Questões da disciplina de {{object.name}} </h2>
+	<h2> Questões da disciplina de <b> {{object.name}} </b> </h2>
 	{% for questao in questoes %}
 		{% if questao.prof == request.user %}
 			{% if questao.subject.pk == object.pk %}
@@ -14,6 +14,7 @@
 				<p> {{questao.alternative4}}</p>
 				<p> {{questao.alternative5}}</p>
 				<br>
+				<p> <b>_______________________________________________________________________________________________________________________________________________ </b></p>
 			{% endif %}
 		{% endif %}
 	{% endfor %}

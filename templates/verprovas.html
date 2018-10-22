@@ -1,10 +1,10 @@
 {% extends 'home.html' %}
 
 {% block content %}
-	<h3> Suas Provas: </h3>
+	<h2> <b> Suas Provas: </b> </h2>
 	{% for object in object_list %}
 		{% if object.prof == request.user %}
-			<p> Título da Prova: {{object.title}} </p>
+			<h2> <b> {{object.title}} </b> </h2>
 
 
 
@@ -17,7 +17,7 @@
 			<p> d) {{object.question1.alternative4}}</p>
 			<p> e) {{object.question1.alternative5}}</p>
 			
-			<p> Enunciado: 2) {{object.question2}}</p>
+			<p> <b> Enunciado: 2) {{object.question2}} </b> </p>
 			<p> Imagem: <img src="/media/{{object.question2.image}}"></p>
 			<p> Alternativas: </p>
 			<p> a) {{object.question2.alternative1}}</p>
@@ -26,7 +26,7 @@
 			<p> d) {{object.question2.alternative4}}</p>
 			<p> e) {{object.question2.alternative5}}</p>
 			
-			<p> Enunciado: 3) {{object.question3}}</p>
+			<p> <b> Enunciado: 3) {{object.question3}} </b> </p>
 			<p> Imagem: <img src="/media/{{object.question3.image}}"></p>
 			<p> Alternativas: </p>
 			<p> a) {{object.question3.alternative1}}</p>
@@ -35,7 +35,7 @@
 			<p> d) {{object.question3.alternative4}}</p>
 			<p> e) {{object.question3.alternative5}}</p>
 			
-			<p> Enunciado: 4) {{object.question4}}</p>
+			<p> <b> Enunciado: 4) {{object.question4}} </b> </p>
 			<p> Imagem: <img src="/media/{{object.question4.image}}"></p>
 			<p> Alternativas: </p>
 			<p> a) {{object.question4.alternative1}}</p>
@@ -44,7 +44,7 @@
 			<p> d) {{object.question4.alternative4}}</p>
 			<p> e) {{object.question4.alternative5}}</p>
 			
-			<p> Enunciado: 5) {{object.question5}}</p>
+			<p> <b> Enunciado: 5) {{object.question5}} </b> </p>
 			<p> Imagem: <img src="/media/{{object.question5.image}}"></p>
 			<p> Alternativas: </p>
 			<p> a) {{object.question5.alternative1}}</p>
@@ -55,6 +55,8 @@
 			
 			<p> <a href="{% url 'bancodequestoes:provaedit' object.pk %}"> Editar Prova </a> </p>
 			<p> <a href="{% url 'bancodequestoes:provadelete' object.pk %}"> Excluir Prova </a> </p>
+
+			<p> <b>_______________________________________________________________________________________________________________________________________________ </b></p>
 		{% endif %}
 	{% endfor %}
 {% endblock %}

@@ -26,7 +26,7 @@ class HomeView(TemplateView):
 class UserCreateView(CreateView):
     model = models.UUIDUser
     template_name = 'cadastro.html'
-    success_url = reverse_lazy('bancodequestoes:home')
+    success_url = reverse_lazy('bancodequestoes:login')
     form_class = UUIDUserForm
     def form_valid(self, form):
         obj = form.save(commit=False)
@@ -43,21 +43,21 @@ class Perfil(ListView):
 class Perfiledit(UpdateView):
     model = models.UUIDUser
     template_name = 'perfiledit.html'
-    success_url = reverse_lazy('bancodequestoes:home')
+    success_url = reverse_lazy('bancodequestoes:perfil')
     form_class = UUIDUserFormEdit
     
 #ExcluirPerfilView
 class Perfildelete(DeleteView):
     model = models.UUIDUser
     template_name = 'perfildelete.html'
-    success_url = reverse_lazy('bancodequestoes:home')
+    success_url = reverse_lazy('bancodequestoes:perfil')
     form_class = UUIDUserFormEdit
 
 #CadastarDisciplinaView
 class CadastrarDisciplina(CreateView):
     model = models.Disciplina
     template_name = 'cadastrardisciplina.html'
-    success_url = reverse_lazy('bancodequestoes:home')
+    success_url = reverse_lazy('bancodequestoes:suasdisciplinas')
     form_class = DisciplinaForm
     def form_valid(self, form):
         obj = form.save(commit=False)
@@ -74,21 +74,21 @@ class SuasDisciplinas(ListView):
 class DisciplinaEdit(UpdateView):
     model = models.Disciplina
     template_name = 'disciplinaedit.html'
-    success_url = reverse_lazy('bancodequestoes:home')
+    success_url = reverse_lazy('bancodequestoes:suasdisciplinas')
     form_class = DisciplinaForm
     
 #ExcluirDisciplinaView
 class DisciplinaDelete(DeleteView):
     model = models.Disciplina
     template_name = 'disciplinadelete.html'
-    success_url = reverse_lazy('bancodequestoes:home')
+    success_url = reverse_lazy('bancodequestoes:suasdisciplinas')
     form_class = DisciplinaForm
 
 #CriarQuestaoView
 class CriarQuestao(CreateView):
     model = models.Questao
     template_name = 'criarquestao.html'
-    success_url = reverse_lazy('bancodequestoes:home')
+    success_url = reverse_lazy('bancodequestoes:suasquestoes')
     form_class = QuestaoForm
     def form_valid(self, form):
         obj = form.save(commit=False)
@@ -105,14 +105,14 @@ class SuasQuestoes(ListView):
 class QuestaoEdit(UpdateView):
     model = models.Questao
     template_name = 'questaoedit.html'
-    success_url = reverse_lazy('bancodequestoes:home')
+    success_url = reverse_lazy('bancodequestoes:suasquestoes')
     form_class = QuestaoForm
 
 #ExcluirQuestaoView
 class QuestaoDelete(DeleteView):
     model = models.Questao
     template_name = 'questaodelete.html'
-    success_url = reverse_lazy('bancodequestoes:home')
+    success_url = reverse_lazy('bancodequestoes:suasquestoes')
     form_class = QuestaoForm
 
 #ListDisciplinasView
@@ -132,7 +132,7 @@ class QuestaoDisciplina(DetailView):
 class CriarprovaView(CreateView):
     model = models.Prova
     template_name = 'criarquestaoview.html'
-    success_url = reverse_lazy('bancodequestoes:home')
+    success_url = reverse_lazy('bancodequestoes:verprovas')
     form_class = ProvaForm
     def form_valid(self, form):
         obj = form.save(commit=False)
@@ -150,12 +150,12 @@ class VerProvas(ListView):
 class ProvaEdit(UpdateView):
     model = models.Prova
     template_name = 'provaeditform.html'
-    success_url = reverse_lazy('bancodequestoes:home')
+    success_url = reverse_lazy('bancodequestoes:verprovas')
     form_class = ProvaForm
 
 #ProvaDeleteView
 class ProvaDelete(DeleteView):
     model = models.Prova
     template_name = 'provadeleteform.html'
-    success_url = reverse_lazy('bancodequestoes:home')
+    success_url = reverse_lazy('bancodequestoes:verprovas')
     form_class = ProvaForm

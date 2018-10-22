@@ -1,16 +1,18 @@
 {% extends 'home.html' %}
 
 {% block content %}
+	<h2> <b> Suas Questões: </b> </h2>
 	{% for object in object_list %}
 		{% if object.prof == request.user %}
 			<h3> <b> {{object.enunciation}} </b> </h3> 
 			<p> <img src="/media/{{object.image}}"></p>
-			<p> {{object.alternative1}} </p>
-			<p> {{object.alternative2}} </p>
-			<p> {{object.alternative3}} </p>
-			<p> {{object.alternative4}} </p>
-			<p> {{object.alternative5}} </p>
-			<p> <b> {{object.answer}} </b> </p>
+			<p> <b> Alternativas: </b></p>
+			<p> a) {{object.alternative1}} </p>
+			<p> b) {{object.alternative2}} </p>
+			<p> c) {{object.alternative3}} </p>
+			<p> d) {{object.alternative4}} </p>
+			<p> e) {{object.alternative5}} </p>
+			<p> Alternativa correta: <b> {{object.answer}} </b> </p>
 			<p> <a href="{% url 'bancodequestoes:questaoedit' object.pk %}"> Editar Questão </a> <p/>
 			<p> <a href="{% url 'bancodequestoes:questaodelete' object.pk%}"> Excluir Questão </a> </p>
 		{% endif %}
