@@ -84,3 +84,14 @@ class Prova(models.Model):
     class Meta:
         verbose_name = 'prova'
         verbose_name_plural = 'provas'
+
+# RespostaModel
+# - - - - - - - - - - - - - - - - - - -
+class Resposta(models.Model):
+    prof = models.ForeignKey(UUIDUser, on_delete=models.CASCADE, related_name='resposta', verbose_name='aluno')
+    prova = models.ForeignKey(Prova, on_delete=models.CASCADE, related_name='resposta', verbose_name='prova')
+    resposta1 = models.TextField(verbose_name='resposta1')
+    resposta2 = models.TextField(verbose_name='resposta2')
+    resposta3 = models.TextField(verbose_name='resposta3')
+    resposta4 = models.TextField(verbose_name='resposta4')
+    resposta5 = models.TextField(verbose_name='resposta5')

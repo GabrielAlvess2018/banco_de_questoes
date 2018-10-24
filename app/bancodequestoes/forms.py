@@ -8,7 +8,7 @@ from django import forms
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 
 #Importando os models para criar os formulários
-from .models import UUIDUser, Disciplina, Questao, Prova
+from .models import UUIDUser, Disciplina, Questao, Prova, Resposta
 
 # User: create
 # - - - - - - - - - - - - - - - - - - -
@@ -67,6 +67,16 @@ class QuestaoForm(forms.ModelForm):
 #form Prova
 # - - - - - - - - - - - - - - - - - - -
 class ProvaForm(forms.ModelForm):
+
+    def __init__(self, *args, **kwargs):
+        user = kwargs.pop('user', None)
+        super(ProvaForm, self).__init__(*args, **kwargs)
+        self.fields['question1'].queryset = Questao.objects.filter(prof=user)
+        self.fields['question2'].queryset = Questao.objects.filter(prof=user)
+        self.fields['question3'].queryset = Questao.objects.filter(prof=user)
+        self.fields['question4'].queryset = Questao.objects.filter(prof=user)
+        self.fields['question5'].queryset = Questao.objects.filter(prof=user)
+
     class Meta:
         model = Prova
         fields = ('title', 'question1', 'question2', 'question3', 'question4', 'question5')
@@ -77,4 +87,17 @@ class ProvaForm(forms.ModelForm):
         'question3' : 'Questão 3',
         'question4' : 'Questão 4',
         'question5' : 'Questão 5',
+        }
+
+class RepostaForm(forms.ModelForm):
+    class Meta:
+        model = Resposta
+        fields = {'prova', 'resposta1', 'resposta2', 'resposta3', 'resposta4', 'resposta5'}
+        labels = {
+        'prova': 'Qual prova deseja responder?',
+        'resposta1':'Resposta da primeira',
+        'resposta2':'Resposta da segunda',
+        'resposta3':'Resposta da terceira',
+        'resposta4':'Resposta da quarta',
+        'resposta5':'Resposta da quinta',
         }

@@ -57,4 +57,7 @@ urlpatterns = [
 	path('provaedit/<pk>/', views.ProvaEdit.as_view(), name='provaedit'),
 
 	path('provadelete/<pk>/', views.ProvaDelete.as_view(), name='provadelete'),
+
+	#Resposta
+	path('responderprova/', views.ResponderProva.as_view(), name='responderprova'),
 ]

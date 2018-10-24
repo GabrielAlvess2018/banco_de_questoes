@@ -16,7 +16,7 @@ from django.urls import reverse_lazy
 from . import models
 
 #Importando formulários específicos do arquivo forms.py
-from .forms import UUIDUserForm, UUIDUserFormEdit, DisciplinaForm, QuestaoForm, ProvaForm
+from .forms import UUIDUserForm, UUIDUserFormEdit, DisciplinaForm, QuestaoForm, ProvaForm, RepostaForm
 
 #HomeView
 class HomeView(TemplateView):
@@ -134,6 +134,13 @@ class CriarprovaView(CreateView):
     template_name = 'criarquestaoview.html'
     success_url = reverse_lazy('bancodequestoes:verprovas')
     form_class = ProvaForm
+
+    def get_form_kwargs(self):
+        kwargs = super(CriarprovaView, self).get_form_kwargs()
+        kwargs['user'] = self.request.user # pass the 'user' in kwargs
+        return kwargs
+
+    
     def form_valid(self, form):
         obj = form.save(commit=False)
         obj.prof = self.request.user
@@ -159,3 +166,15 @@ class ProvaDelete(DeleteView):
     template_name = 'provadeleteform.html'
     success_url = reverse_lazy('bancodequestoes:verprovas')
     form_class = ProvaForm
+
+#ResponderProvaView
+class ResponderProva(CreateView):
+    model = models.Resposta
+    template_name = 'responderprova.html'
+    success_url = reverse_lazy('bancodequestoes:verprovas')
+    form_class =  RepostaForm
+    def form_valid(self, form):
+        obj = form.save(commit=False)
+        obj.prof = self.request.user
+        obj.save()
+        return super(ResponderProva, self).form_valid(form)
